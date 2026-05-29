@@ -1,0 +1,29 @@
+This file contains all the meta information regarding the columns described in the CSV files.
+
+1. tn_2021_results.csv: contains candidate-level results from the 2021 Tamil Nadu Legislative Assembly election. 4,232 rows covering all 234 constituencies. Source: cleaned from Trivedi Centre for Political Data (Ashoka University), which sources from the Election Commission of India.
+
+2. tn_2026_results.csv: contains candidate-level results from the 2026 Tamil Nadu Legislative Assembly election. 4,257 rows covering all 234 constituencies. Source: Election Commission of India live results portal (results.eci.gov.in/ResultAcGenMay2026). Note: ECI Form-20 (final audited data) had not been released when this file was prepared.
+
+3. constituency_master.csv: master list of all 234 Assembly Constituencies (ACs) with district and editorial region mapping. Useful as a reference table for joins.
+
+
+
+Column Description for tn_2021_results.csv and tn_2026_results.csv:
+1. constituency: The name of the Assembly Constituency in Tamil Nadu.
+2. ac_number: The official Election Commission AC number (1 to 234). Use this as the primary key when joining files.
+3. candidate: The name of the candidate as recorded by the ECI.
+4. party: Standardized party abbreviation (DMK, AIADMK, TVK, INC, BJP, PMK, VCK, NTK, CPI, CPI(M), IND, NOTA, etc.).
+5. votes: Total votes received by the candidate in that constituency.
+6. turnout: Constituency-level voter turnout percentage. This is the same value for every row in a given constituency.
+7. reserved: Constituency reservation status. GEN = general / unreserved, SC = reserved for Scheduled Caste, ST = reserved for Scheduled Tribe.
+                Tamil Nadu has 188 GEN, 44 SC, and 2 ST constituencies (same in both 2021 and 2026 — no delimitation change).
+8. region: Editorial six-region grouping (Chennai Metro, North, Central, Kongu, Delta, South). This is NOT an official ECI classification — it is the grouping convention used in this challenge to enable regional analysis. See constituency_master.csv for the full mapping.
+
+
+
+Column Description for constituency_master.csv:
+1. ac_number: Official ECI AC number (1 to 234).
+2. constituency: AC name.
+3. district: Administrative district the constituency belongs to.
+4. region: Six-region editorial grouping (Chennai Metro, North, Central, Kongu, Delta, South).
+5. reserved: GEN, SC, or ST.
